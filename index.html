@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colleague Gift Picker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f9;
+        }
+
+        .wheel-container {
+            margin-top: 50px;
+        }
+
+        #giftWheel {
+            border: 10px solid #333;
+            border-radius: 50%;
+            padding: 20px;
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+            position: relative;
+            background-color: white;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        #giftWheel ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #giftWheel li {
+            padding: 10px;
+            font-size: 16px;
+            text-align: center;
+            color: #fff;
+            background-color: #3498db;
+            border-radius: 50%;
+            margin: 5px 0;
+            display: block;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #giftWheel li:hover {
+            background-color: #2980b9;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #2ecc71;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 30px;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Spin the Wheel to Choose a Colleague for the Gift Exchange</h1>
+    <p>Spin the wheel and let luck decide who your gift buddy is!</p>
+
+    <div class="wheel-container">
+        <div id="giftWheel">
+            <ul>
+                <li>Ana</li>
+                <li>Denis</li>
+                <li>Anna</li>
+                <li>Ajay</li>
+                <li>Sabaresh</li>
+                <li>Paresh</li>
+                <li>Zsolt</li>
+                <li>Omer</li>
+                <li>Dmitry</li>
+                <li>William</li>
+                <li>Sergey</li>
+                <li>Lana</li>
+                <li>Abdelrahman</li>
+                <li>Manish</li>
+                <li>Nithesh</li>
+                <li>Faisal</li>
+            </ul>
+        </div>
+        <button id="spinButton">Spin the Wheel</button>
+    </div>
+
+    <script>
+        const names = [
+            "Ana", "Denis", "Anna", "Ajay", "Sabaresh", "Paresh", "Zsolt", 
+            "Omer", "Dmitry", "William", "Sergey", "Lana", "Abdelrahman", 
+            "Manish", "Nithesh", "Faisal"
+        ];
+
+        const wheel = document.getElementById("giftWheel");
+        const button = document.getElementById("spinButton");
+
+        button.addEventListener("click", function () {
+            const randomIndex = Math.floor(Math.random() * names.length);
+            let winner = names[randomIndex];
+
+            // Prevent the winner from picking themselves
+            while (winner === names[randomIndex]) {
+                winner = names[Math.floor(Math.random() * names.length)];
+            }
+
+            alert("Your gift buddy is: " + winner);
+        });
+    </script>
+
+</body>
+</html>
